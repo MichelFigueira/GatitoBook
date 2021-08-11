@@ -4,20 +4,23 @@ import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MessagesModule } from '../shared/messages/messages.module';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
     FormsModule,
-    MessagesModule
+    MessagesModule,
+    ReactiveFormsModule
   ],
   exports:[HomeComponent]
 })
