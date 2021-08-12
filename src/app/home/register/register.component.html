@@ -3,15 +3,26 @@
 <form class="form mt-4" [formGroup]="newUserForm" (submit)="register()">
   <div class="form-group">
     <input type="text" placeholder="Nome Completo" class="form-control" formControlName="fullName">
-  </div>
+    <app-messages *ngIf="newUserForm.get('fullName')?.errors?.minlength && newUserForm.get('fullName')?.touched" message="Nome completo deve possuir mais que 3 caracteres."></app-messages>
+    <app-messages *ngIf="newUserForm.get('fullName')?.errors?.required && newUserForm.get('fullName')?.touched" message="Nome completo é obrigatório."></app-messages>
+    </div>
   <div class="form-group">
     <input type="email" placeholder="E-mail" class="form-control" formControlName="email">
+    <app-messages *ngIf="newUserForm.get('email')?.errors?.email && newUserForm.get('email')?.touched" message="E-mail deve ser válido."></app-messages>
+    <app-messages *ngIf="newUserForm.get('email')?.errors?.required && newUserForm.get('email')?.touched" message="E-mail é obrigatório."></app-messages>
   </div>
   <div class="form-group">
     <input type="text" placeholder="Usuário" class="form-control" formControlName="userName">
+    <app-messages *ngIf="newUserForm.get('userName')?.errors?.minlength && newUserForm.get('userName')?.touched" message="Usuário deve possuir mais que 3 caracteres."></app-messages>
+    <app-messages *ngIf="newUserForm.get('userName')?.errors?.required && newUserForm.get('userName')?.touched" message="Usuário é obrigatório."></app-messages>
+    <app-messages *ngIf="newUserForm.get('userName')?.errors?.lowercase && newUserForm.get('userName')?.touched" message="Usuário deve ser minúscula"></app-messages>
+    <app-messages *ngIf="newUserForm.get('userName')?.errors?.userValid" message="Usuário já existe"></app-messages>
   </div>
   <div class="form-group">
     <input type="password" placeholder="Senha" class="form-control" formControlName="password">
+    <app-messages *ngIf="newUserForm.get('password')?.errors?.minlength && newUserForm.get('password')?.touched" message="Senha deve possuir mais que 3 caracteres."></app-messages>
+    <app-messages *ngIf="newUserForm.get('password')?.errors?.required && newUserForm.get('password')?.touched" message="Senha é obrigatório."></app-messages>
+    <app-messages *ngIf="newUserForm.get('password')?.errors?.matchFields" message="Usuário e senha não devem ser iguais."></app-messages>
   </div>
   <button class="btn btn-primary btn-block">Cadastrar</button>
 </form>
