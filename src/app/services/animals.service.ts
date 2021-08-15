@@ -1,10 +1,11 @@
+import { environment } from './../../environments/environment';
 import { TokenService } from './../auth/token.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Animals } from '../models/animal';
 
-const API = 'http://localhost:3000'
+const API = environment.apiURL;
 
 @Injectable({
   providedIn: 'root'

@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { TokenService } from './../auth/token.service';
 import { User } from './../models/user';
 import { HttpClient } from '@angular/common/http';
@@ -7,12 +8,13 @@ import { first, map, switchMap } from 'rxjs/operators';
 import  jwt_decode  from 'jwt-decode'
 import { BehaviorSubject } from 'rxjs';
 
+const API = environment.apiURL;
+
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  baseURL = 'http://localhost:3000/user/'
   private userSubject = new BehaviorSubject<User>({});
 
   constructor(private httpClient: HttpClient, private tokenService: TokenService) {
@@ -22,11 +24,11 @@ export class UserService {
   }
 
   register(newUser: User) {
-    return this.httpClient.post(`${this.baseURL}signup`, newUser);
+    return this.httpClient.post(`${API}/user/signup`, newUser);
   }
 
   checkUser(user: string) {
-    return this.httpClient.get(`${this.baseURL}exists/${user}`);
+    return this.httpClient.get(`${API}/user/exists/${user}`);
   }
 
   userValid(){
