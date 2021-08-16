@@ -1,3 +1,4 @@
+import { AuthModule } from './auth/auth.module';
 import { HeaderModule } from './shared/header/header.module';
 import { FooterModule } from './shared/footer/footer.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -15,6 +16,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    AuthModule,
     HeaderModule,
     FooterModule
   ],
