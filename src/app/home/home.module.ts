@@ -1,11 +1,11 @@
+import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { LoginComponent } from './login/login.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MessagesModule } from '../shared/messages/messages.module';
+import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 
 
@@ -19,8 +19,7 @@ import { RegisterComponent } from './register/register.component';
     CommonModule,
     HomeRoutingModule,
     FormsModule,
-    MessagesModule,
-    ReactiveFormsModule
+    SharedModule
   ],
   exports:[HomeComponent]
 })
