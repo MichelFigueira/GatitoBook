@@ -44,4 +44,13 @@ export class AnimalsService {
   newComment(id: number, commentText: string): Observable<Comment> {
     return this.http.post<Comment>(`${API}/photos/${id}/comments`, { commentText });
   }
+
+  upload(description: string, allowComments: boolean, imageFile: File) {
+    const formData = new FormData();
+    formData.append('description', description);
+    formData.append('allowComments', allowComments ? 'true' : 'false');
+    formData.append('imageFile', imageFile);
+
+    return this.http.post(`${API}/photos/upload`, formData, { observe: 'events', reportProgress: true });
+  }
 }

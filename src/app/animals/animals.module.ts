@@ -11,6 +11,7 @@ import { AnimalComponent } from './animal/animal.component';
 import { GridAnimalsComponent } from './grid-animals/grid-animals.component';
 import { DetailAnimalComponent } from './detail-animal/detail-animal.component';
 import { CommentsComponent } from './detail-animal/comments/comments.component';
+import { NewAnimalComponent } from './new-animal/new-animal.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { CommentsComponent } from './detail-animal/comments/comments.component';
     AnimalComponent,
     GridAnimalsComponent,
     DetailAnimalComponent,
-    CommentsComponent
+    CommentsComponent,
+    NewAnimalComponent
   ],
   imports: [
     CommonModule,
