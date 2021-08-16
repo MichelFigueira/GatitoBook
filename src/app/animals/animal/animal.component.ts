@@ -10,20 +10,20 @@ const API = environment.apiURL;
 })
 export class AnimalComponent implements OnInit {
 
-  private baseUrl = '';
+  private defaultUrl = '';
 
   @Input() description = '';
 
   @Input() set url(url: string) {
     if (url.startsWith('data')){
-      this.baseUrl = url;
+      this.defaultUrl = url;
     } else {
-      this.baseUrl = `${API}/imgs/${url}`;
+      this.defaultUrl = `${API}/imgs/${url}`;
     }
   }
 
   get url(): string {
-    return this.baseUrl;
+    return this.defaultUrl;
   }
 
   constructor() { }

@@ -1,10 +1,10 @@
 <header class="sticky-top">
   <nav class="navbar navbar-light bg-white">
-    <a class="navbar-brand"></a>
+    <a class="navbar-brand">Gatito Book</a>
     <div *ngIf="user$ | async as user">
-      <div *ngIf="user.fullName; else login">
-        <i class="fa fa-user-circle mr-1"></i>
-        <a class="mr-1">{{ user.fullName }}</a>
+      <div *ngIf="user.name; else login">
+        <i class="fa fa-user-circle mr-1"> </i>
+        <a class="mr-1">{{ user.name }}</a>
         <a (click)="logout()">Logout</a>
       </div>
     </div>
@@ -12,25 +12,8 @@
 
   <ng-template #login>
     <span class="navbar-text">
-      <a [routerLink]="['']">Faça o Login</a>
+      <a [routerLink]="['']">Login</a>
     </span>
   </ng-template>
 
-</header>
-<header class="p-3 bg-dark text-white">
-  <div class="container">
-    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-        Gatito Book
-      </a>
-
-      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-      </ul>
-
-      <div class="text-end">
-        <button type="button" class="btn btn-outline-light me-2">Sair</button>
-        <button type="button" class="btn btn-warning">Login</button>
-      </div>
-    </div>
-  </div>
-</header>
+  </header>

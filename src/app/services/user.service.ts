@@ -8,6 +8,7 @@ import { first, map, switchMap } from 'rxjs/operators';
 import  jwt_decode  from 'jwt-decode'
 import { BehaviorSubject } from 'rxjs';
 
+
 const API = environment.apiURL;
 
 @Injectable({
@@ -64,7 +65,7 @@ export class UserService {
     this.userSubject.next({});
   }
 
-  logged(){
+  isLogged(){
     return this.tokenService.tokenCheck();
   }
 
